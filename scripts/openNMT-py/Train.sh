@@ -38,7 +38,7 @@ python /opt/OpenNMT-py/preprocess.py \
        -tgt_langs t 
 
 
-python -u /opt/OpenNMT-py/train.py  -data /tmp/${name}/train.train.pt \
+python -u /opt/OpenNMT-py/train.py  -data /tmp/${name}/train \
        -save_model /tmp/${name}/model \
        -brnn \
        -rnn_size $size \
@@ -61,7 +61,7 @@ done
 
 best=`awk '{ppl=$0;gsub(/.tmp.*.model_ppl_/,"",ppl);gsub(/_e[0-9]*.pt/,"",ppl); if(NR==1 || 1.0*ppl < 1.0*min){min=ppl;f=$0}}END{print f}' /tmp/${name}/list`
 
-python -u /opt/OpenNMT-py/train.py  -data /tmp/${name}/train.train.pt \
+python -u /opt/OpenNMT-py/train.py  -data /tmp/${name}/train \
        -save_model /tmp/${name}/cont.model \
        -brnn \
        -rnn_size $size \
