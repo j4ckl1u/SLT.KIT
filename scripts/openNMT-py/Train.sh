@@ -88,7 +88,7 @@ best=`awk '{ppl=$0;gsub(/.tmp..*.cont.model_ppl_/,"",ppl);gsub(/_e[0-9]*.pt/,"",
 echo $best
 
 cp $best /model/$name/model.pt
-cp /tmp/$name/train.dict.s /model/$name/
-cp /tmp/$name/train.dict.t /model/$name/
+cp /tmp/$name/train/vocab.s /model/$name/
+cp /tmp/$name/train/vocab.t /model/$name/
 
 rm -r /tmp/${name}/

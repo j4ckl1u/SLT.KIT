@@ -67,3 +67,4 @@ RUN cd /opt && wget http://www.openslr.org/resources/4/sctk-2.4.10-20151007-1312
 RUN cd /opt/sctk-2.4.10 && make config && make all && make install && make doc
 
 RUN pip install python-Levenshtein
+RUN apt-get -y install emacs
